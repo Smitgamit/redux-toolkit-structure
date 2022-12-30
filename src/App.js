@@ -1,24 +1,39 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+// import useFetch from './hooks/useFetch';
 import './App.css';
+import Layout from './components/layout/Layout';
+import Home from './pages/Home';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { appRoutes, protectedRoutes } from './routes/Routes';
+import PageNotFound from './pages/PageNotFound';
+import Login from './pages/Login';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<Home />} />
+          {
+            false ?
+              protectedRoutes.map((route, idx) => {
+                return route.element ? (
+                  <Route
+                    key={idx}
+                    path={route.path}
+                    name={route.name}
+                    element={<route.element />}
+                  />
+                ) : <Route path="*" element={<PageNotFound />} />
+              })
+              :
+              <Route path="*" element={<Login />} />
+          }
+          <Route path="*" element={<PageNotFound />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
