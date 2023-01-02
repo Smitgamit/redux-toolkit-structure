@@ -16,6 +16,18 @@ function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           {
+            appRoutes.map((route, idx) => {
+              return route.element ? (
+                <Route
+                  key={idx}
+                  path={route.path}
+                  name={route.name}
+                  element={<route.element />}
+                />
+              ) : null;
+            })
+          }
+          {
             false ?
               protectedRoutes.map((route, idx) => {
                 return route.element ? (
@@ -25,10 +37,9 @@ function App() {
                     name={route.name}
                     element={<route.element />}
                   />
-                ) : <Route path="*" element={<PageNotFound />} />
+                ) : null;
               })
-              :
-              <Route path="*" element={<Login />} />
+              : <Route path="*" element={<Login />} />
           }
           <Route path="*" element={<PageNotFound />} />
         </Route>

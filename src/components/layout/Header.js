@@ -19,6 +19,9 @@ export default function Header() {
                             <li className="nav-item" >
                                 <Link to={'/products'} className={location.pathname === '/products' ? "nav-link active" : "nav-link"} >Products</Link>
                             </li>
+                            <li className="nav-item" >
+                                <Link to={'/product'} className={location.pathname === '/product' ? "nav-link active" : "nav-link"} >Product</Link>
+                            </li>
                         </ul>
                         <form className="d-flex">
                             <Link to={'/login'} className="btn btn-outline-success" type="submit">Login</Link>
