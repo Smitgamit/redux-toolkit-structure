@@ -6,7 +6,7 @@ import Profile from "../pages/Profile"
 
 export const protectedRoutes = [
     { path: '/products', element: Products },
-    { path: '/product', element: Product },
+    { path: '/product/:id', element: Product },
     { path: '/profile', element: Profile },
 ]
 

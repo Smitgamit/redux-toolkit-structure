@@ -32,12 +32,6 @@ export default function Header() {
                                     <Link to={'/products'} className={location.pathname === '/products' ? "nav-link active" : "nav-link"} >Products</Link>
                                 </li> : null
                             }
-                            {
-                                userToken !== null ? <li className="nav-item" >
-                                    <Link to={'/product'} className={location.pathname === '/product' ? "nav-link active" : "nav-link"} >Product</Link>
-                                </li> : null
-                            }
-
                         </ul>
                         <form className="d-flex">
                             {
