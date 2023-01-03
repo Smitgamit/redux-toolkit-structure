@@ -8,7 +8,7 @@ export default function Footer() {
                     <span>LOGO</span>
                 </div>
                 <div className="copyright">
-                    <p>developed and maintained by <a href="#" target="_blank">company</a></p>
+                    <p>developed and maintained by test</p>
                 </div>
                 <div>
                     <ul className="d-flex gap-3 list-unstyled">

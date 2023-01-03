@@ -22,7 +22,6 @@ export default function Login() {
     function handleLogin(event) {
         event.preventDefault()
         dispatch(userLogin(loginDetail))
-        // alert('login')
     }
     useEffect(() => {
         if (userToken !== null) {
